@@ -8,16 +8,15 @@ export default function App() {
   const [trainerList, setTrainerList] = useState([""])
   return (
     <>
-    <BasicMenu />
-    <Button variant="contained"> G </Button>
-    <h1> Pokereact</h1>
-    <h1 className="text-3xl font-bold text-white">
-    Hello world!
-  </h1>
+      <BasicMenu />
 
-    {/* <TrainerForm/> */}
-      
-    {/* </TrainerForm>       */}
+      <h1 className="text-3xl font-bold text-white">
+        Pokereact</h1>
+      <Button variant="contained"> Enter the V0ID </Button>
+
+      {/* <TrainerForm/> */}
+
+      {/* </TrainerForm>       */}
     </>
   )
 }
