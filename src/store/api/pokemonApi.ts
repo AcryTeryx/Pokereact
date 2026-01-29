@@ -1,18 +1,28 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export interface IPokemon {
-    id: number;
-    name: string;
-    image: string;
-    apiTypes: {
+    pokedex_id: number;
+    generation: number;
+    category: string;
+    name: {
+        fr: string;
+        en: string;
+        jp: string;
+    };
+    sprites: {
+        regular: string;
+        shiny: string | null;
+        gmax: unknown;
+    };
+    types: {
         name: string;
         image: string;
-    }[];
+    }[] | null;
 }
 
 export const pokemonApi = createApi({
     reducerPath: 'pokemonApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://pokebuildapi.fr/api/v1/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://tyradex.app/api/v1/' }),
     endpoints: (pBuilder) => ({
         getPokemons: pBuilder.query<IPokemon[], void>({
             query: () => 'pokemon',

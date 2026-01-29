@@ -25,15 +25,15 @@ export default function Pokedex() {
     <Box sx={{ flexGrow: 1, marginTop: 20 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {lPokemons?.map((lPokemon) => (
-          <Grid key={lPokemon.id} size={{ xs: 2, sm: 4, md: 3 }}>
+          <Grid key={lPokemon.pokedex_id} size={{ xs: 2, sm: 4, md: 3 }}>
             <Item>
               <img
-                src={lPokemon.image}
-                alt={lPokemon.name}
+                src={lPokemon.sprites.regular}
+                alt={lPokemon.name.fr}
                 style={{ width: '100%', height: 'auto', maxWidth: 150, margin: '0 auto', display: 'block' }}
               />
               <Box component="span" sx={{ display: 'block', marginTop: 1, fontWeight: 'bold' }}>
-                {lPokemon.name}
+                {lPokemon.name.fr}
               </Box>
             </Item>
           </Grid>
