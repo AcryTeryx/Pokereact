@@ -1,10 +1,11 @@
-interface Props 
-{
-    getter: string[];
-    setter:React.Dispatch<React.SetStateAction<string[]>>;
+import * as React from 'react';
+
+interface Props {
+  getter: string[];
+  setter: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-const TrainerForm: React.FC<Props> = ({getter , setter}) => {
+const TrainerForm: React.FC<Props> = () => {
   return (<div> hello </div>);
 };
 
