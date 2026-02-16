@@ -1,4 +1,3 @@
-// import './index.css'
 import './global.css'
 import ReactDOM from "react-dom/client"
 import MyRouter from './router/MyRouter'
@@ -8,7 +7,8 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import { StrictMode } from 'react';
 import { red } from '@mui/material/colors';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { store, persistor } from './store/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const theme = createTheme(
   {
@@ -27,12 +27,14 @@ const theme = createTheme(
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <StyledEngineProvider enableCssLayer>
-        <ThemeProvider theme={theme}>
-          <GlobalStyles styles="@layer theme, base, mui, components, utilities;" />
-          <MyRouter />
-        </ThemeProvider>
-      </StyledEngineProvider>
+      <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
+        <StyledEngineProvider enableCssLayer>
+          <ThemeProvider theme={theme}>
+            <GlobalStyles styles="@layer theme, base, mui, components, utilities;" />
+            <MyRouter />
+          </ThemeProvider>
+        </StyledEngineProvider>
+      </PersistGate>
     </Provider>
   </StrictMode>,
 );
